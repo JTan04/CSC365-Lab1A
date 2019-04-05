@@ -57,9 +57,45 @@ public class schoolSearch{
       }
    }
 
+   public static void printPrompt() {
+      System.out.println("Enter one of the following commands: ");
+      System.out.print("S[tudent]: <lastname> [B[us]]\nT[eacher]: <lastname>\nB[us]: <number>\nG[rade]: <number> [H[igh]|L[ow]]\nA[verage]: <number>\nI[nfo]\nQ[uit]\n");
+      System.out.println("*Bracketed portions are optional");
+      return;
+   }
+   public static boolean processInput(String command, Scanner input) {
+      switch(command.charAt(0)) {
+         case 'S':
+            System.out.println("Student\n");
+            return true;
+         case 'T':
+            System.out.println("Teacher\n");
+            return true;
+         case 'B':
+            System.out.println("Bus\n");
+            return true;
+         case 'G':
+            System.out.println("Grade\n");
+            return true;
+         case 'A':
+            System.out.println("Average\n");
+            return true;
+         case 'I':
+            System.out.println("Info\n");
+            return true;
+         case 'Q':
+            return false;
+         default:
+            System.out.println("Invalid Command\n");
+            return true;
+      }
+   }
+
    public static void main(String[] args) throws IOException{
       File file = new File(args[0]);
-      Scanner sc = new Scanner(file);
+      Scanner sc = new Scanner(file), input = new Scanner(System.in);
+      boolean run = true;
+      String command;
       List<Student> listOfStudents = new ArrayList<>();
       while(sc.hasNextLine()){
          String studentInfo = sc.nextLine();
@@ -78,5 +114,9 @@ public class schoolSearch{
                            tLast, tFirst);
          listOfStudents.add(stud);
       }
+      do {
+         printPrompt();
+         command = input.nextLine();
+      } while(processInput(command, input));
    }
 }
