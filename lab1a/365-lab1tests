@@ -1,0 +1,78 @@
+// CSC 365, Spring 2019
+// Lab 1 Part 1 test suite
+
+// TC-1
+// Test Requirements R3, R4
+// Search for student
+// Expected Output: RAPOSE,ALONZO,4,105,HANTZ,JED
+
+S: RAPOSE
+
+// TC-2
+// Test Requirements R3, R5
+// Search for student with bus option
+// Expected Output: CORKER,CARTER,53
+
+S: CORKER B
+
+// TC-3
+// Test Requirements R3, R6
+// Search for student
+// Expected Output: 
+// STERBACK,PETER
+// FINCHMAN,MATHILDA
+// OBREIN,STAN
+// SAENPHIMMACHA,NUMBERS
+// BREVO,JANNETTE
+// BEAN,INGER
+// FEYEREISEN,WILFREDO
+// WERST,LEON
+// LAMKIN,TAMA
+
+T: NANCY
+
+// TC-4
+// Test Requirements R3, R7
+// Search for student
+// Expected Output: 
+// COOKUS,XUAN
+// ELHADDAD,SHANTE
+// BRODERSEN,HYE
+// SWEDLUND,SHARRI
+// CIGANEK,MANIE
+// COVINGTON,TOMAS
+// EARLY,TORY
+// LINHART,LELA
+// THEUNISSEN,GRACE
+
+G: 3
+
+// TC-5
+// Test Requirements R3, R7
+// Search for student
+// Expected Output: <empty line>
+
+G: 10
+
+// TC-6
+// Test Requirements R3, R8
+// Search for student
+// Expected Output: 
+// COOKUS,XUAN,3,107
+// ELHADDAD,SHANTE,3,107
+// IMMERMAN,DEVIN,4,105
+// OBREIN,STAN,6,111
+// CORONADO,DIMPLE,6,102
+// SARAO,DIEDRA,2,108
+// EARLY,TORY,3,107
+// KEMERER,ROSETTA,6,102
+
+
+B: 52
+
+// TC-6
+// Test Requirements R3, R9
+// Search for student
+// Expected Output: WICINSKY,TERESE,2,53,3.22,HAMER,GAVIN
+
+G: 2 H
