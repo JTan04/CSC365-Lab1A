@@ -63,32 +63,71 @@ public class schoolSearch{
       System.out.println("*Bracketed portions are optional");
       return;
    }
+
+   /*Need to remove print statements below for invalid input*/
+
    public static boolean processInput(String command, Scanner input) {
-      switch(command.charAt(0)) {
-         case 'S':
-            System.out.println("Student\n");
+      String[] parsedCommand = command.split(" ");
+      if (parsedCommand.length() > 3){
+         System.out.println("Invalid input\n");
+         return false;
+      }
+      if (parsedCommand[0].equals("S") || parsedCommand[0].equals("Student"){
+         if (parsedCommand.length() == 3 && (parsedCommand[2].equals("B")
+            || parsedCommand[2].equals("Bus"))){
+            filterStudentByBus(parsedCommand[1]);
+         }
+         else if (parsedCommand.length() == 2){
+            filterStudent(parsedCommand[1]);
+         }
+         else{
+            System.out.println("Invalid input\n");
+         }
+         return true;
+      if (parsedCommand[0].equals("T") || parsedCommand[0].equals("Teacher"){
+         if (parsedCommand.length() != 2){
+            System.out.println("Invalid input\n");
+            return false;
+         }
+         filterTeacher(parsedCommand[1]);
+         return true;
+      }
+      if (parsedCommand[0].equals("B") || parsedCommand[0].equals("Bus"){
+         if (parsedCommand.length() == 2){
+            filterBus(parsedCommand[1]);
             return true;
-         case 'T':
-            System.out.println("Teacher\n");
+         }
+         else{
+            System.out.println("Invalid input\n");
+         }
+      }
+
+      if (parsedCommand[0].equals("G") || parsedCommand[0].equals("Grade"){
+         if (parsedCommand.length() != 2 && parsedCommand.length() != 3){
+            System.out.println("Invalid input\n");
+            return false;
+         }
+         if (parsedCommand.length() == 3 && parsedCommand[2].charAt(0) == 'H'){
+            /*insert function here*/
+         }
+         else if (parsedCommand.length() == 3 && parsedCommand[2].charAt(0) == 'L'){
+            /*insert function here*/
+         }
+         else{
+            filterGrade(parsedCommand[1]);
             return true;
-         case 'B':
-            System.out.println("Bus\n");
-            return true;
-         case 'G':
-            System.out.println("Grade\n");
-            return true;
-         case 'A':
-            System.out.println("Average\n");
+         }
+      }
+      /* case 'A':
             return true;
          case 'I':
-            System.out.println("Info\n");
             return true;
          case 'Q':
             return false;
          default:
             System.out.println("Invalid Command\n");
             return true;
-      }
+      }*/
    }
 
    public static void main(String[] args) throws IOException{
