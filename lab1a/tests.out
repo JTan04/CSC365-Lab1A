@@ -1,0 +1,169 @@
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+S: RAPOSE
+RAPOSE,ALONZO,4,105,HANTZ,JED
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+S: CORKER B
+CORKER,CARTER,53
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+T: NISTENDIRK
+STERBACK,PETER
+FINCHMAN,MATHILDA
+OBREIN,STAN
+SAENPHIMMACHA,NUMBERS
+BREVO,JANNETTE
+BEAN,INGER
+FEYEREISEN,WILFREDO
+WERST,LEON
+LAMKIN,TAMA
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+G: 3
+COOKUS,XUAN
+ELHADDAD,SHANTE
+BRODERSEN,HYE
+SWEDLUND,SHARRI
+CIGANEK,MANIE
+COVINGTON,TOMAS
+EARLY,TORY
+LINHART,LELA
+THEUNISSEN,GRACE
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+G: 10
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+B: 52
+COOKUS,XUAN,3,107
+ELHADDAD,SHANTE,3,107
+IMMERMAN,DEVIN,4,105
+OBREIN,STAN,6,111
+CORONADO,DIMPLE,6,102
+SARAO,DIEDRA,2,108
+EARLY,TORY,3,107
+KEMERER,ROSETTA,6,102
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+G: 2 H
+WICINSKY,TERESE,2,53,3.22,HAMER,GAVIN
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+G: 2 L
+KOZOLA,BUSTER,2,55,2.76,HAMER,GAVIN
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+A: 4
+Grade: 4, Average GPA: 2.95
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+I
+0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+Q
