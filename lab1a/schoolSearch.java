@@ -66,7 +66,7 @@ public class schoolSearch{
    public static void printPrompt() {
       System.out.println("Enter one of the following commands: ");
       System.out.print("S[tudent]: <lastname> [B[us]]\nT[eacher]: <lastname>\nB[us]: <number>\nG[rade]: <number> [H[igh]|L[ow]]\nA[verage]: <number>\nI[nfo]\nQ[uit]\n");
-      System.out.println("*Bracketed portions are optional");
+      System.out.println("*Bracketed portions are optional\n");
       return;
    }
 
@@ -126,10 +126,6 @@ public class schoolSearch{
    public static boolean processInput(String command, Scanner input, List<Student> students) {
       String[] parsedCommand = command.split(" ");
       int commandLength = getLength(parsedCommand);
-      if (commandLength > 3){
-         System.out.println("Invalid input\n");
-         return false;
-      }
       if (parsedCommand[0].equals("S") || parsedCommand[0].equals("Student")){
          if (commandLength == 3 && (parsedCommand[2].equals("B")
             || parsedCommand[2].equals("Bus"))){
@@ -142,54 +138,69 @@ public class schoolSearch{
             System.out.println("Invalid input\n");
          }
          return true;
+      }
       if (parsedCommand[0].equals("T") || parsedCommand[0].equals("Teacher")){
          if (commandLength != 2){
             System.out.println("Invalid input\n");
-            return false;
+         }else
+         {
+            filterTeacher(students, parsedCommand[1]);
          }
-         filterTeacher(students, parsedCommand[1]);
          return true;
       }
       if (parsedCommand[0].equals("B") || parsedCommand[0].equals("Bus")){
          if (commandLength == 2){
-            filterBus(students, parsedCommand[1]);
-            return true;
+            filterBus(students, Integer.parseInt(parsedCommand[1]));
          }
          else{
             System.out.println("Invalid input\n");
          }
+         return true;
       }
 
       if (parsedCommand[0].equals("G") || parsedCommand[0].equals("Grade")){
          if (commandLength != 2 && commandLength != 3){
             System.out.println("Invalid input\n");
-            return false;
          }
-         if (commandLength == 3 && parsedCommand[2].charAt(0) == 'H'){
+         if (commandLength == 3){
             /*insert function here*/
-         }
-         else if (commandLength == 3 && parsedCommand[2].charAt(0) == 'L'){
-            /*insert function here*/
+            getGradeHighLow(students, Integer.parseInt(parsedCommand[1]),
+               parsedCommand[2].charAt(0));
          }
          else{
             filterGrade(students, Integer.parseInt(parsedCommand[1]));
-            return true;
          }
+         return true;
       }
-      /* case 'A':
-            return true;
-         case 'I':
-            return true;
-         case 'Q':
-            return false;
-         default:
-            System.out.println("Invalid Command\n");
-            return true;
-      }*/
+
+      if (parsedCommand[0].equals("A") || parsedCommand[0].equals("Average")){
+         if(commandLength == 2){
+            getAverage(students, Integer.parseInt(parsedCommand[1]));
+         }
+         else{
+            System.out.println("Invalid input\n");
+         }
+         return true;
+      }
+
+      if (parsedCommand[0].equals("I") || parsedCommand[0].equals("Info")){
+         if(commandLength == 1){
+            getInfo(students);
+         }
+         else{
+            System.out.println("Invalid input\n");
+         }
+         return true;
+      }
+
+      if (parsedCommand[0].equals("Q") || parsedCommand[0].equals("Quit")){
+         return false;
+      }
+      return true;
    }
 
    public static void main(String[] args) throws IOException{
-      File file = new File(args[0]);
+      File file = new File("students.txt");
       Scanner sc = new Scanner(file), input = new Scanner(System.in);
       boolean run = true;
       String command;
@@ -215,5 +226,94 @@ public class schoolSearch{
          printPrompt();
          command = input.nextLine();
       } while(processInput(command, input, listOfStudents));
+   }
+
+   public static void getGradeHighLow(List<Student> listOfStudents, int grade, char c){
+      Student max = null;
+      Student min = null;
+      Student print = null;
+      double maxGPA = 0;
+      double minGPA = 5;
+      for(Student s : listOfStudents){
+         if(s.getGrade() == grade){
+            if(maxGPA < s.getGPA()){
+               maxGPA = s.getGPA();
+               max = s;
+            }
+            if(minGPA > s.getGPA()){
+               minGPA = s.getGPA();
+               min = s;
+            }
+         }
+      }
+      if(c == 'H'){
+         print = max;
+      }else if(c == 'L'){
+         print = min;
+      }
+      if(print != null){
+         System.out.println(print.getFirstName() + " " + print.getLastName()
+         + ", " + print.getGPA() + ", " + print.getTFirstName() + " " + print.getTLastName() +
+         ", Bus route " + print.getBus());
+         System.out.println();
+      }
+   }
+
+   public static void getAverage(List<Student> listOfStudents, int grade){
+      double average = 0.0;
+      int count = 0;
+      for(Student s : listOfStudents){
+         if(s.getGrade() == grade){
+            average += s.getGPA();
+            count++;
+         }
+      }
+      average = average/count;
+      System.out.println("Grade: " + grade + ", Average GPA: " + average);
+      System.out.println();
+   }
+
+   public static void getInfo(List<Student> listOfStudents){
+      int g0 = 0;
+      int g1 = 0;
+      int g2 = 0;
+      int g3 = 0;
+      int g4 = 0;
+      int g5 = 0;
+      int g6 = 0;
+      for(Student s : listOfStudents){
+         switch(s.getGrade()){
+            case 0:
+               g0++;
+               break;
+            case 1:
+               g1++;
+               break;
+            case 2:
+               g2++;
+               break;
+            case 3:
+               g3++;
+               break;
+            case 4:
+               g4++;
+               break;
+            case 5:
+               g5++;
+               break;
+            case 6:
+               g6++;
+               break;
+            default:
+               break;
+         }
+      }
+      System.out.println("0: " + g0);
+      System.out.println("1: " + g1);
+      System.out.println("2: " + g2);
+      System.out.println("3: " + g3);
+      System.out.println("4: " + g4);
+      System.out.println("5: " + g5);
+      System.out.println("6: " + g6);
    }
 }
