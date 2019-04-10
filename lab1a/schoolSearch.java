@@ -76,8 +76,9 @@ public class schoolSearch{
             .collect(Collectors.toList());
       int i = 0;
       for (i = 0; i < sorted.size(); i++){
-         System.out.println(sorted.get(i).getLastName() + sorted.get(i).getFirstName() + sorted.get(i).getBus());
+         System.out.println(sorted.get(i).getLastName() + "," + sorted.get(i).getFirstName() + "," + sorted.get(i).getBus());
       }
+      System.out.println();
    }
 
    public static void filterStudent(List<Student> students, String lastName){
@@ -86,9 +87,10 @@ public class schoolSearch{
               .collect(Collectors.toList());
       int i = 0;
       for (i = 0; i < sorted.size(); i++){
-         System.out.println(sorted.get(i).getLastName() + sorted.get(i).getFirstName() + sorted.get(i).getGrade() +
-               sorted.get(i).getClassroom() + sorted.get(i).getTLastName() + sorted.get(i).getTFirstName());
+         System.out.println(sorted.get(i).getLastName() + "," + sorted.get(i).getFirstName() + "," + sorted.get(i).getGrade() +
+               "," + sorted.get(i).getClassroom() + "," + sorted.get(i).getTLastName() + "," + sorted.get(i).getTFirstName());
       }
+      System.out.println();
    }
 
    public static void filterTeacher(List<Student> students, String lastName) {
@@ -97,8 +99,9 @@ public class schoolSearch{
               .collect(Collectors.toList());
       int i = 0;
       for (i = 0; i < sorted.size(); i++) {
-         System.out.println(sorted.get(i).getLastName() + sorted.get(i).getFirstName());
+         System.out.println(sorted.get(i).getLastName() + "," + sorted.get(i).getFirstName());
       }
+      System.out.println();
    }
    public static void filterBus(List<Student> students, int number){
         List<Student> sorted = students.stream()
@@ -106,9 +109,10 @@ public class schoolSearch{
         .collect(Collectors.toList());
         int i = 0;
         for (i = 0; i < sorted.size(); i++){
-        System.out.println(sorted.get(i).getLastName() + sorted.get(i).getFirstName() + sorted.get(i).getGrade()
-               + sorted.get(i).getClass());
+            System.out.println(sorted.get(i).getLastName() + "," + sorted.get(i).getFirstName() + "," + sorted.get(i).getGrade()
+               + "," + sorted.get(i).getClassroom());
         }
+        System.out.println();
    }
    public static void filterGrade(List<Student> students, int number){
         List<Student> sorted = students.stream()
@@ -116,9 +120,9 @@ public class schoolSearch{
         .collect(Collectors.toList());
         int i = 0;
         for (i = 0; i < sorted.size(); i++){
-        System.out.println(sorted.get(i).getLastName() + sorted.get(i).getFirstName() + sorted.get(i).getGPA()
-                + sorted.get(i).getLastName() + sorted.get(i).getFirstName() + sorted.get(i).getBus());
+            System.out.println(sorted.get(i).getLastName() + "," + sorted.get(i).getFirstName());
         }
+        System.out.println();
    }
 
    /*Need to remove print statements below for invalid input*/
@@ -126,7 +130,7 @@ public class schoolSearch{
    public static boolean processInput(String command, Scanner input, List<Student> students) {
       String[] parsedCommand = command.split(" ");
       int commandLength = getLength(parsedCommand);
-      if (parsedCommand[0].equals("S") || parsedCommand[0].equals("Student")){
+      if (parsedCommand[0].equals("S:") || parsedCommand[0].equals("Student:")){
          if (commandLength == 3 && (parsedCommand[2].equals("B")
             || parsedCommand[2].equals("Bus"))){
             filterStudentByBus(students, parsedCommand[1]);
@@ -139,16 +143,15 @@ public class schoolSearch{
          }
          return true;
       }
-      if (parsedCommand[0].equals("T") || parsedCommand[0].equals("Teacher")){
+      if (parsedCommand[0].equals("T:") || parsedCommand[0].equals("Teacher:")){
          if (commandLength != 2){
             System.out.println("Invalid input\n");
-         }else
-         {
+         } else {
             filterTeacher(students, parsedCommand[1]);
          }
          return true;
       }
-      if (parsedCommand[0].equals("B") || parsedCommand[0].equals("Bus")){
+      if (parsedCommand[0].equals("B:") || parsedCommand[0].equals("Bus:")){
          if (commandLength == 2){
             filterBus(students, Integer.parseInt(parsedCommand[1]));
          }
@@ -158,7 +161,7 @@ public class schoolSearch{
          return true;
       }
 
-      if (parsedCommand[0].equals("G") || parsedCommand[0].equals("Grade")){
+      if (parsedCommand[0].equals("G:") || parsedCommand[0].equals("Grade:")){
          if (commandLength != 2 && commandLength != 3){
             System.out.println("Invalid input\n");
          }
@@ -173,7 +176,7 @@ public class schoolSearch{
          return true;
       }
 
-      if (parsedCommand[0].equals("A") || parsedCommand[0].equals("Average")){
+      if (parsedCommand[0].equals("A:") || parsedCommand[0].equals("Average:")){
          if(commandLength == 2){
             getAverage(students, Integer.parseInt(parsedCommand[1]));
          }
@@ -252,9 +255,8 @@ public class schoolSearch{
          print = min;
       }
       if(print != null){
-         System.out.println(print.getFirstName() + " " + print.getLastName()
-         + ", " + print.getGPA() + ", " + print.getTFirstName() + " " + print.getTLastName() +
-         ", Bus route " + print.getBus());
+         System.out.println(print.getLastName() + "," + print.getFirstName()
+         + "," + print.getGrade() + "," + print.getBus() + "," + print.getGPA() + "," + print.getTLastName() + "," + print.getTFirstName());
          System.out.println();
       }
    }
@@ -269,7 +271,7 @@ public class schoolSearch{
          }
       }
       average = average/count;
-      System.out.println("Grade: " + grade + ", Average GPA: " + average);
+      System.out.println("Grade: " + grade + ", Average GPA: " + String.format("%.2f", average));
       System.out.println();
    }
 

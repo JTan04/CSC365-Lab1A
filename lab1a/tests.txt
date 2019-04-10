@@ -17,7 +17,7 @@ S: CORKER B
 
 // TC-3
 // Test Requirements R3, R6
-// Search for student
+// Search for students with given teacher
 // Expected Output: 
 // STERBACK,PETER
 // FINCHMAN,MATHILDA
@@ -29,11 +29,11 @@ S: CORKER B
 // WERST,LEON
 // LAMKIN,TAMA
 
-T: NANCY
+T: NISTENDIRK
 
 // TC-4
 // Test Requirements R3, R7
-// Search for student
+// Search for students in given grade
 // Expected Output: 
 // COOKUS,XUAN
 // ELHADDAD,SHANTE
@@ -49,14 +49,14 @@ G: 3
 
 // TC-5
 // Test Requirements R3, R7
-// Search for student
+// Search for students in given grade
 // Expected Output: <empty line>
 
 G: 10
 
 // TC-6
 // Test Requirements R3, R8
-// Search for student
+// Search for students with given bus route
 // Expected Output: 
 // COOKUS,XUAN,3,107
 // ELHADDAD,SHANTE,3,107
@@ -72,7 +72,42 @@ B: 52
 
 // TC-6
 // Test Requirements R3, R9
-// Search for student
+// Search for student with highest GPA in given grade
 // Expected Output: WICINSKY,TERESE,2,53,3.22,HAMER,GAVIN
 
 G: 2 H
+
+// TC-7
+// Test Requirements R3, R9
+// Search for student with lowest GPA in given grade
+// Expected Output: KOZOLA,BUSTER,2,55,2.76,HAMER,GAVIN
+
+G: 2 L
+
+// TC-8
+// Test Requirements R3, R10
+// Get Average GPA of all students in given grade
+// Expected Output: Grade: 4, Average GPA: 2.95
+
+A: 4
+
+// TC-9
+// Test Requirements R3, R11
+// Return number of students in each grade
+// Expected Output:
+//0: 0
+//1: 2
+//2: 13
+//3: 9
+//4: 15
+//5: 0
+//6: 21
+
+I
+
+// TC-10
+// Test Requirements R3, R12
+// Quit Program
+// Expected Output: Program Terminates
+
+Q
