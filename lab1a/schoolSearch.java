@@ -202,35 +202,6 @@ public class schoolSearch{
       return true;
    }
 
-   public static void main(String[] args) throws IOException{
-      File file = new File("students.txt");
-      Scanner sc = new Scanner(file), input = new Scanner(System.in);
-      boolean run = true;
-      String command;
-      List<Student> listOfStudents = new ArrayList<>();
-      while(sc.hasNextLine()){
-         String studentInfo = sc.nextLine();
-         String[] infoList = studentInfo.split(",");
-
-         String stLast = infoList[0];
-         String stFirst = infoList[1];
-         int grade = Integer.parseInt(infoList[2]);
-         int classroom = Integer.parseInt(infoList[3]);
-         int bus = Integer.parseInt(infoList[4]);
-         double gpa = Double.parseDouble(infoList[5]);
-         String tLast = infoList[6];
-         String tFirst = infoList[7];
-
-         Student stud = new Student(stLast, stFirst, grade, classroom, bus, gpa,
-                           tLast, tFirst);
-         listOfStudents.add(stud);
-      }
-      do {
-         printPrompt();
-         command = input.nextLine();
-      } while(processInput(command, input, listOfStudents));
-   }
-
    public static void getGradeHighLow(List<Student> listOfStudents, int grade, char c){
       Student max = null;
       Student min = null;
@@ -317,5 +288,34 @@ public class schoolSearch{
       System.out.println("4: " + g4);
       System.out.println("5: " + g5);
       System.out.println("6: " + g6);
+   }
+
+   public static void main(String[] args) throws IOException{
+      File file = new File("students.txt");
+      Scanner sc = new Scanner(file), input = new Scanner(System.in);
+      boolean run = true;
+      String command;
+      List<Student> listOfStudents = new ArrayList<>();
+      while(sc.hasNextLine()){
+         String studentInfo = sc.nextLine();
+         String[] infoList = studentInfo.split(",");
+
+         String stLast = infoList[0];
+         String stFirst = infoList[1];
+         int grade = Integer.parseInt(infoList[2]);
+         int classroom = Integer.parseInt(infoList[3]);
+         int bus = Integer.parseInt(infoList[4]);
+         double gpa = Double.parseDouble(infoList[5]);
+         String tLast = infoList[6];
+         String tFirst = infoList[7];
+
+         Student stud = new Student(stLast, stFirst, grade, classroom, bus, gpa,
+                           tLast, tFirst);
+         listOfStudents.add(stud);
+      }
+      do {
+         printPrompt();
+         command = input.nextLine();
+      } while(processInput(command, input, listOfStudents));
    }
 }
