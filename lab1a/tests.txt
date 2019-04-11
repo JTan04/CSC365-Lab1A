@@ -1,5 +1,6 @@
 // CSC 365, Spring 2019
 // Lab 1 Part 1 test suite
+//contributors: Julian Tan, Connor Alvin, Michelle Jakab
 
 // TC-1
 // Test Requirements R3, R4
