@@ -69,7 +69,7 @@ public class schoolSearch{
 
    public static void printPrompt() {
       System.out.println("Enter one of the following commands: ");
-      System.out.print("S[tudent]: <lastname> [B[us]]\nT[eacher]: <lastname>\nB[us]: <number>\nG[rade]: <number> [H[igh]|L[ow]]\nA[verage]: <number>\nI[nfo]\nQ[uit]\n");
+      System.out.print("S[tudent]: <lastname> [B[us]]\nT[eacher]: <lastname>\nB[us]: <number>\nG[rade]: <number> [H[igh]|L[ow]|T[eacher]]\nC[lassroom]: <number> S[tudent]|T[eacher]\nA[verage]: <number>\nD[ata]: G[rade]|T[eacher]|B[us]\nI[nfo]\nE[nrollment]\nQ[uit]\n");
       System.out.println("*Bracketed portions are optional\n");
       return;
    }
@@ -189,7 +189,14 @@ public class schoolSearch{
          }
          return true;
       }
-
+      if(parsedCommand[0].equals("D:") || parsedCommand[0].equals("Data:")) {
+         if(commandLength == 2) {
+         }
+         else {
+            System.out.println("Invalid Input\n");
+         }
+         return true;
+      }
       if (parsedCommand[0].equals("I") || parsedCommand[0].equals("Info")){
          if(commandLength == 1){
             getInfo(students);
