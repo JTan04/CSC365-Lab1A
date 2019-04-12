@@ -7,6 +7,10 @@ import java.util.stream.Collectors;
 
 import static java.lang.reflect.Array.getLength;
 
+/* Lab01 Part 1 main file
+ * contributors: Julian Tan, Connor Alvin, Michelle Jakab
+ */
+
 public class schoolSearch{
    public static class Student{
       String StLastName;
