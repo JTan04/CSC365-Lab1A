@@ -150,6 +150,16 @@ public class schoolSearch{
         System.out.println();
    }
 
+   public static ArrayList<Integer> getBusRoutes(List<Student> students) {
+      ArrayList<Integer> buses = new ArrayList<Integer>();
+      for(Student s : students) {
+         if(!buses.contains(s.getBus())) {
+            buses.add(s.getBus());
+         }
+      }
+      return buses;
+   }
+
    /*Need to remove print statements below for invalid input*/
 
    public static boolean processInput(String command, Scanner input, List<Student> students, List<Teacher> teachers) {
@@ -237,13 +247,64 @@ public class schoolSearch{
 
    public static void getData(List<Student> students, List<Teacher> teachers, String type) {
       if(type.equals("G") || type.equals("Grade")) {
-         System.out.println("Data Grade");
+         double sum = 0.0;
+         int count = 0;
+         for(int i = 0; i < 7; i++) {
+            for(Student s : students) {
+               if(s.getGrade() == i) {
+                  sum += s.getGPA();
+                  count++;
+               }
+            }
+            if(count > 0) {
+               System.out.println("Grade " + i + ": Average GPA - " + String.format("%.2f", sum/count));
+            }
+            else {
+               System.out.println("Grade " + i + ": No Students");
+            }
+            sum = 0;
+            count = 0;
+         }
+         System.out.println();
       }
       else if(type.equals("T") || type.equals("Teacher")) {
-         System.out.println("Data Teacher");
+         double sum = 0.0;
+         int count = 0;
+         for(Teacher t : teachers) {
+            for(Student s : students) {
+               if(t.getClassroom() == s.getClassroom()) {
+                  sum += s.getGPA();
+                  count++;
+               }
+            }
+            System.out.println(t.getTLastName() + ": Average GPA - " + String.format("%.2f", sum/count));
+            sum = 0;
+            count = 0;
+         }
+         System.out.println();
       }
       else if(type.equals("B") || type.equals("Bus")) {
          System.out.println("Data Bus");
+         ArrayList<Integer> buses = getBusRoutes(students);
+         double sum = 0.0;
+         int count = 0;
+         for(Integer i : buses) {
+            for(Student s : students) {
+               if(s.getBus() == i) {
+                  sum += s.getGPA();
+                  count++;
+               }
+            }
+            if(i == 0) {
+               System.out.println("No Bus: Average GPA - " + String.format("%.2f", sum/count));
+            }
+            else {
+               System.out.println("Bus " + i + ": Average GPA - " + String.format("%.2f", sum/count));
+            }
+            sum = 0;
+            count = 0;
+         }
+         System.out.println();
       }
    }
    public static void getGradeHighLow(List<Student> listOfStudents, List<Teacher> teachers, int grade, char c){
