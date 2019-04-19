@@ -155,12 +155,17 @@ public class schoolSearch{
       List<Teacher> newlist = new ArrayList<>();
       int i;
       for (i = 0; i < sorted.size(); i++){
-         newlist.add(new Teacher(sorted.get(i).getLastName(), sorted.get(i).getFirstName(), 0));
+         int j;
+         for (j = 0; j < teachers.size(); j++) {
+            if (teachers.get(j).getClassroom() == students.get(i).getClassroom()) {
+               newlist.add(teachers.get(j));
+            }
+         }
       }
       List<Teacher> output = newlist.stream()
               .distinct().collect(Collectors.toList());
-      for (i = 0; i < sorted.size(); i++){
-         System.out.println(sorted.get(i).getLastName() + "," + sorted.get(i).getFirstName());
+      for (i = 0; i < output.size(); i++){
+         System.out.println(output.get(i).getTLastName() + "," + output.get(i).getTFirstName());
       }
    }
 
