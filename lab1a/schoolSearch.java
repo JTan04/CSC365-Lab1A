@@ -1,7 +1,5 @@
-import java.lang.reflect.Array;
 import java.util.*;
 import java.io.*;
-import java.lang.Object;
 import java.lang.String;
 import java.util.stream.Collectors;
 
@@ -150,6 +148,73 @@ public class schoolSearch{
         System.out.println();
    }
 
+   public static void filterGradeTeacher(List<Student> students, List<Teacher> teachers, int number){
+      List<Student> sorted = students.stream()
+              .filter(p -> (p.getGrade() == number))
+              .collect(Collectors.toList());
+      List<Teacher> newlist = new ArrayList<>();
+      int i;
+      for (i = 0; i < sorted.size(); i++){
+         newlist.add(new Teacher(sorted.get(i).getLastName(), sorted.get(i).getFirstName(), 0));
+      }
+      List<Teacher> output = newlist.stream()
+              .distinct().collect(Collectors.toList());
+      for (i = 0; i < sorted.size(); i++){
+         System.out.println(sorted.get(i).getLastName() + "," + sorted.get(i).getFirstName());
+      }
+   }
+
+   public static void sortEnrollment(List<Student> students) {
+      HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+      int i;
+      int num;
+      for (i = 0; i < students.size(); i++){
+         num = map.getOrDefault(students.get(i).getClassroom(), 0);
+         map.put(students.get(i).getClassroom(), num + 1);
+      }
+      int j = 0;
+      /*int room;
+      int enrolled;*/
+      List<Map.Entry<Integer, Integer>> mapEntries = new ArrayList<>();
+      /*List<Integer> rooms = new ArrayList<>();
+      List<Integer> enrollments = new ArrayList<>();*/
+      Set<Map.Entry<Integer, Integer>> set = map.entrySet();
+      Iterator<Map.Entry<Integer, Integer>> entries = set.iterator();
+      while (entries.hasNext()) {
+         Map.Entry<Integer, Integer> entry = entries.next();
+         mapEntries.add(entry);
+         /*rooms.add(entry.getKey());
+         enrollments.add(entry.getValue());*/
+         j++;
+      }
+      Comparator<Map.Entry<Integer, Integer>> comp = Comparator.comparingInt(Map.Entry::getKey);
+      mapEntries.sort(comp);
+      for (i = 0; i < j; i++){
+         System.out.println(mapEntries.get(i).getKey() + ", " + mapEntries.get(i).getValue());
+      }
+   }
+
+   public static void filterClassroomStudent(List<Student> students, int number){
+      List<Student> sorted = students.stream()
+              .filter(p -> (p.getClassroom() == number))
+              .collect(Collectors.toList());
+      int i = 0;
+      for (i = 0; i < sorted.size(); i++){
+         System.out.println(sorted.get(i).getLastName() + "," + sorted.get(i).getFirstName());
+      }
+      System.out.println();
+   }
+   public static void filterClassroomTeacher(List<Teacher> teachers, int number){
+      List<Teacher> sorted = teachers.stream()
+              .filter(p -> (p.getClassroom() == number))
+              .collect(Collectors.toList());
+      int i = 0;
+      for (i = 0; i < sorted.size(); i++){
+         System.out.println(sorted.get(i).getTLastName() + "," + sorted.get(i).getTFirstName());
+      }
+      System.out.println();
+   }
+
    public static ArrayList<Integer> getBusRoutes(List<Student> students) {
       ArrayList<Integer> buses = new ArrayList<Integer>();
       for(Student s : students) {
@@ -200,7 +265,10 @@ public class schoolSearch{
          if (commandLength != 2 && commandLength != 3){
             System.out.println("Invalid input\n");
          }
-         if (commandLength == 3){
+         if (commandLength == 3 && (parsedCommand[2].equals("T") || parsedCommand[2].equals("Teacher"))){
+            filterGradeTeacher(students, teachers, Integer.parseInt(parsedCommand[1]));
+         }
+         else if (commandLength == 3){
             /*insert function here*/
             getGradeHighLow(students, teachers, Integer.parseInt(parsedCommand[1]),
                parsedCommand[2].charAt(0));
@@ -211,12 +279,34 @@ public class schoolSearch{
          return true;
       }
 
+      if (parsedCommand[0].equals("E") || parsedCommand[0].equals("Enrollment")){
+         if (commandLength != 1){
+            System.out.println("Invalid Input");
+         }
+         else{
+            sortEnrollment(students);
+         }
+      }
+
       if (parsedCommand[0].equals("A:") || parsedCommand[0].equals("Average:")){
          if(commandLength == 2){
             getAverage(students, Integer.parseInt(parsedCommand[1]));
          }
          else{
             System.out.println("Invalid input\n");
+         }
+         return true;
+      }
+      if(parsedCommand[0].equals("C:") || parsedCommand[0].equals("Classroom:")) {
+         if (commandLength != 3){
+            System.out.println("Invalid input\n");
+            return true;
+         }
+         if (parsedCommand[2].equals("S") || parsedCommand[2].equals("Student")){
+            filterClassroomStudent(students, Integer.parseInt(parsedCommand[1]));
+         }
+         if (parsedCommand[2].equals("T") || parsedCommand[2].equals("Teacher")){
+            filterClassroomTeacher(teachers, Integer.parseInt(parsedCommand[1]));
          }
          return true;
       }
