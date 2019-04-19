@@ -147,25 +147,26 @@ public class schoolSearch{
         }
         System.out.println();
    }
-
+   public static ArrayList<Integer> getClassrooms(List<Student> students) {
+      ArrayList<Integer> classrooms = new ArrayList<Integer>();
+      for(Student s : students) {
+         if(!(classrooms.contains(s.getClassroom()))) {
+            classrooms.add(s.getClassroom());
+         }
+      }
+      return classrooms;
+   }
    public static void filterGradeTeacher(List<Student> students, List<Teacher> teachers, int number){
       List<Student> sorted = students.stream()
               .filter(p -> (p.getGrade() == number))
               .collect(Collectors.toList());
       List<Teacher> newlist = new ArrayList<>();
       int i;
-      for (i = 0; i < sorted.size(); i++){
-         int j;
-         for (j = 0; j < teachers.size(); j++) {
-            if (teachers.get(j).getClassroom() == students.get(i).getClassroom()) {
-               newlist.add(teachers.get(j));
-            }
+      ArrayList<Integer> classrooms = getClassrooms(sorted);
+      for (i = 0; i < teachers.size(); i++){
+         if(classrooms.contains(teachers.get(i).getClassroom())) {
+            System.out.println(teachers.get(i).getTLastName() + "," + teachers.get(i).getTFirstName());
          }
-      }
-      List<Teacher> output = newlist.stream()
-              .distinct().collect(Collectors.toList());
-      for (i = 0; i < output.size(); i++){
-         System.out.println(output.get(i).getTLastName() + "," + output.get(i).getTFirstName());
       }
    }
 
@@ -379,7 +380,6 @@ public class schoolSearch{
          System.out.println();
       }
       else if(type.equals("B") || type.equals("Bus")) {
-         System.out.println("Data Bus");
          ArrayList<Integer> buses = getBusRoutes(students);
          double sum = 0.0;
          int count = 0;

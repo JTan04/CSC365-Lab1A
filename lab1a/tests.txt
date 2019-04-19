@@ -56,6 +56,32 @@ G: 3
 G: 10
 
 // TC-6
+// Test Requirements NR-1
+// Search for students with given bus route
+// Expected Output: 
+//LIBRANDI,TODD
+//HAVIR,BOBBIE
+//SARAO,DIEDRA
+//VANCOTT,MIKE
+//WICINSKY,TERESE
+//KOZOLA,BUSTER
+//MULLINGS,LEIGHANN
+//BUSSMANN,BILLY
+//BERBES,DICK
+//MULGREW,RANDELL
+//TOWLEY,LANE
+
+C: 108 S
+
+// TC-7
+// Test Requirements NR-2
+// Search for students with given bus route
+// Expected Output: 
+//HAMER, GAVIN
+
+C: 108 T
+
+// TC-8
 // Test Requirements R3, R8
 // Search for students with given bus route
 // Expected Output: 
@@ -68,31 +94,87 @@ G: 10
 // EARLY,TORY,3,107
 // KEMERER,ROSETTA,6,102
 
-
 B: 52
 
-// TC-6
+// TC-9
 // Test Requirements R3, R9
 // Search for student with highest GPA in given grade
 // Expected Output: WICINSKY,TERESE,2,53,3.22,HAMER,GAVIN
 
 G: 2 H
 
-// TC-7
+// TC-10
 // Test Requirements R3, R9
 // Search for student with lowest GPA in given grade
 // Expected Output: KOZOLA,BUSTER,2,55,2.76,HAMER,GAVIN
 
 G: 2 L
 
-// TC-8
+// TC-11
 // Test Requirements R3, R10
 // Get Average GPA of all students in given grade
 // Expected Output: Grade: 4, Average GPA: 2.95
 
 A: 4
 
-// TC-9
+// TC-12
+// Test Requirements NR-5
+// Report the average GPA for each Grade
+// Expected Output:
+//Grade 0: No Students
+//Grade 1: Average GPA - 3.00
+//Grade 2: Average GPA - 2.95
+//Grade 3: Average GPA - 3.05
+//Grade 4: Average GPA - 2.95
+//Grade 5: No Students
+//Grade 6: Average GPA - 2.98
+
+
+D: G
+
+// TC-13
+// Test Requirements NR-5
+// Report the average GPA for each Teacher
+// Expected Output:
+//COOL: Average GPA - 2.91
+//KERBS: Average GPA - 2.98
+//FALKER: Average GPA - 3.00
+//STEIB: Average GPA - 2.90
+//HANTZ: Average GPA - 2.91
+//BODZIONY: Average GPA - 3.09
+//FAFARD: Average GPA - 3.01
+//HAMER: Average GPA - 2.95
+//GAMBREL: Average GPA - 2.96
+//ALPERT: Average GPA - 3.17
+//NISTENDIRK: Average GPA - 2.96
+//CHIONCHIO: Average GPA - 2.99
+
+D: T
+
+// TC-14
+// Test Requirements NR-5
+// Report the average GPA for each Bus Route
+// Expected Output:
+//Bus 52: Average GPA - 2.89
+//No Bus: Average GPA - 2.95
+//Bus 56: Average GPA - 2.92
+//Bus 51: Average GPA - 3.02
+//Bus 53: Average GPA - 3.06
+//Bus 55: Average GPA - 3.04
+//Bus 54: Average GPA - 2.94
+
+D: B
+
+// TC-15
+// Test Requirements NR-3
+// Get all of the teachers that teach a certain grade
+// Expected Output:
+//STEIB,GALE
+//HAMER,GAVIN
+
+G: 2 T
+
+// TC-16
 // Test Requirements R3, R11
 // Return number of students in each grade
 // Expected Output:
@@ -106,7 +188,26 @@ A: 4
 
 I
 
-// TC-10
+//TC-17
+// Test Requirements NR-4
+// Return number of students in each classroom
+// Expected Output:
+//101, 1
+//102, 5
+//103, 2
+//104, 2
+//105, 6
+//106, 2
+//107, 7
+//108, 11
+//109, 5
+//110, 2
+//111, 9
+//112, 8
+
+E
+
+// TC-18
 // Test Requirements R3, R12
 // Quit Program
 // Expected Output: Program Terminates

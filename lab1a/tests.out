@@ -88,6 +88,48 @@ I[nfo]
 Q[uit]
 *Bracketed portions are optional
 
+C: 108 S
+LIBRANDI,TODD
+HAVIR,BOBBIE
+SARAO,DIEDRA
+VANCOTT,MIKE
+WICINSKY,TERESE
+KOZOLA,BUSTER
+MULLINGS,LEIGHANN
+BUSSMANN,BILLY
+BERBES,DICK
+MULGREW,RANDELL
+TOWLEY,LANE
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]|T[eacher]]
+C[lassroom]: <number> S[tudent]|T[eacher]
+A[verage]: <number>
+D[ata]: G[rade]|T[eacher]|B[us]
+I[nfo]
+E[nrollment]
+Q[uit]
+*Bracketed portions are optional
+
+C: 108 T
+HAMER,GAVIN
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]|T[eacher]]
+C[lassroom]: <number> S[tudent]|T[eacher]
+A[verage]: <number>
+D[ata]: G[rade]|T[eacher]|B[us]
+I[nfo]
+E[nrollment]
+Q[uit]
+*Bracketed portions are optional
+
 B: 52
 COOKUS,XUAN,3,107
 ELHADDAD,SHANTE,3,107
@@ -147,6 +189,94 @@ I[nfo]
 Q[uit]
 *Bracketed portions are optional
 
+D: G
+Grade 0: No Students
+Grade 1: Average GPA - 3.00
+Grade 2: Average GPA - 2.95
+Grade 3: Average GPA - 3.05
+Grade 4: Average GPA - 2.95
+Grade 5: No Students
+Grade 6: Average GPA - 2.98
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]|T[eacher]]
+C[lassroom]: <number> S[tudent]|T[eacher]
+A[verage]: <number>
+D[ata]: G[rade]|T[eacher]|B[us]
+I[nfo]
+E[nrollment]
+Q[uit]
+*Bracketed portions are optional
+
+D: T
+COOL: Average GPA - 2.91
+KERBS: Average GPA - 2.98
+FALKER: Average GPA - 3.00
+STEIB: Average GPA - 2.90
+HANTZ: Average GPA - 2.91
+BODZIONY: Average GPA - 3.09
+FAFARD: Average GPA - 3.01
+HAMER: Average GPA - 2.95
+GAMBREL: Average GPA - 2.96
+ALPERT: Average GPA - 3.17
+NISTENDIRK: Average GPA - 2.96
+CHIONCHIO: Average GPA - 2.99
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]|T[eacher]]
+C[lassroom]: <number> S[tudent]|T[eacher]
+A[verage]: <number>
+D[ata]: G[rade]|T[eacher]|B[us]
+I[nfo]
+E[nrollment]
+Q[uit]
+*Bracketed portions are optional
+
+D: B
+Bus 52: Average GPA - 2.89
+No Bus: Average GPA - 2.95
+Bus 56: Average GPA - 2.92
+Bus 51: Average GPA - 3.02
+Bus 53: Average GPA - 3.06
+Bus 55: Average GPA - 3.04
+Bus 54: Average GPA - 2.94
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]|T[eacher]]
+C[lassroom]: <number> S[tudent]|T[eacher]
+A[verage]: <number>
+D[ata]: G[rade]|T[eacher]|B[us]
+I[nfo]
+E[nrollment]
+Q[uit]
+*Bracketed portions are optional
+
+G: 2 T
+STEIB,GALE
+HAMER,GAVIN
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]|T[eacher]]
+C[lassroom]: <number> S[tudent]|T[eacher]
+A[verage]: <number>
+D[ata]: G[rade]|T[eacher]|B[us]
+I[nfo]
+E[nrollment]
+Q[uit]
+*Bracketed portions are optional
+
 I
 0: 0
 1: 2
@@ -163,6 +293,33 @@ B[us]: <number>
 G[rade]: <number> [H[igh]|L[ow]]
 A[verage]: <number>
 I[nfo]
+Q[uit]
+*Bracketed portions are optional
+
+E
+101, 1
+102, 5
+103, 2
+104, 2
+105, 6
+106, 2
+107, 7
+108, 11
+109, 5
+110, 2
+111, 9
+112, 8
+
+Enter one of the following commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]|T[eacher]]
+C[lassroom]: <number> S[tudent]|T[eacher]
+A[verage]: <number>
+D[ata]: G[rade]|T[eacher]|B[us]
+I[nfo]
+E[nrollment]
 Q[uit]
 *Bracketed portions are optional
 
