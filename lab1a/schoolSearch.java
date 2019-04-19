@@ -194,9 +194,9 @@ public class schoolSearch{
       }
    }
 
-   public static void filterClassroomStudent(List<Student> students, List<Teacher> teachers, int number){
+   public static void filterClassroomStudent(List<Student> students, int number){
       List<Student> sorted = students.stream()
-              .filter(p -> (p.getGrade() == number))
+              .filter(p -> (p.getClassroom() == number))
               .collect(Collectors.toList());
       int i = 0;
       for (i = 0; i < sorted.size(); i++){
@@ -204,25 +204,13 @@ public class schoolSearch{
       }
       System.out.println();
    }
-   public static ArrayList<Integer> getClassrooms(List<Student> sorted) {
-      ArrayList<Integer> classrooms = new ArrayList<Integer>();
-      for(Student s : sorted) {
-         if(!(classrooms.contains(s.getClassroom()))) {
-            classrooms.add(s.getClassroom());
-         }
-      }
-      return classrooms;
-   }
-   public static void filterClassroomTeacher(List<Student> students, List<Teacher> teachers, int number){
-      List<Student> sorted = students.stream()
-              .filter(p -> (p.getGrade() == number))
+   public static void filterClassroomTeacher(List<Teacher> teachers, int number){
+      List<Teacher> sorted = teachers.stream()
+              .filter(p -> (p.getClassroom() == number))
               .collect(Collectors.toList());
       int i = 0;
-      ArrayList<Integer> classrooms = getClassrooms(sorted);
-      for (i = 0; i < teachers.size(); i++){
-         if(classrooms.contains(teachers.get(i).getClassroom())) {
-            System.out.println(teachers.get(i).getTLastName() + "," + teachers.get(i).getTFirstName());
-         }
+      for (i = 0; i < sorted.size(); i++){
+         System.out.println(sorted.get(i).getTLastName() + "," + sorted.get(i).getTFirstName());
       }
       System.out.println();
    }
@@ -315,10 +303,10 @@ public class schoolSearch{
             return true;
          }
          if (parsedCommand[2].equals("S") || parsedCommand[2].equals("Student")){
-            filterClassroomStudent(students, teachers, Integer.parseInt(parsedCommand[1]));
+            filterClassroomStudent(students, Integer.parseInt(parsedCommand[1]));
          }
          if (parsedCommand[2].equals("T") || parsedCommand[2].equals("Teacher")){
-            filterClassroomTeacher(students, teachers, Integer.parseInt(parsedCommand[1]));
+            filterClassroomTeacher(teachers, Integer.parseInt(parsedCommand[1]));
          }
          return true;
       }
